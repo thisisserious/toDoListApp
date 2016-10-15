@@ -2,7 +2,7 @@
 This is a 'To Do List' app I designed. It allows the user to create a new task, check it off when complete and delete it from the list.
 
 ## Set-up
-Create these tables using postgresql:
+Create these tables using postgresql: \n
 ``Sample queries from Postico``
 
 # Author

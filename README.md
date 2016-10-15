@@ -7,15 +7,11 @@ Create these tables using postgresql:
 1. ``CREATE DATABASE to_do;``
 
 2. ``CREATE TABLE tasks (
-
 id SERIAL PRIMARY KEY,
-
 task varchar(80) NOT NULL
-
 )``
 
 3. ``ALTER TABLE tasks
-
 ADD complete varchar(5);``
 
 # Author

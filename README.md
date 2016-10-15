@@ -14,10 +14,11 @@ task varchar(80) NOT NULL
 3. ``ALTER TABLE tasks
 ADD complete varchar(5);``
 
-| id     | task          | complete |
-| -------|-------------- | -------- |
-| 1      | Do the dishes |    no    |
-| 2      | Make the bed  |   yes    |
+4. Example:
+   | id     | task          | complete |
+   | -------|-------------- | -------- |
+   | 1      | Do the dishes |    no    |
+   | 2      | Make the bed  |   yes    |
 
 # Author
 - Laura Abend

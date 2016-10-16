@@ -1,6 +1,22 @@
 console.log('Client is running');
 $(function () {
 
+  $.ajax({
+    type: 'GET',
+    url: '/app',
+    success: function (response) {
+      console.log('get response:', response);
+      response.forEach(function (task) {
+        var task = task.task;
+        var $li = $('<li class="list-group-item"></li>');
+        $li.append('<div class="checkbox"><label><input type="checkbox" value="">'
+         + task + '</label><button type="button" class="btn btn-danger btn-sm" id="delete">' +
+         '<span class="glyphicon glyphicon-remove"></span></button>');
+        $('.list-group').append($li);
+      });
+    },
+  });
+
   $('form').on('submit', function (event) {
     event.preventDefault();
     console.log('this:', this);
@@ -32,22 +48,6 @@ $(function () {
          + task + '</label><button type="button" class="btn btn-danger btn-sm" id="delete">' +
          '<span class="glyphicon glyphicon-remove"></span></button>');
         $('.list-group').append($li);
-      },
-    });
-
-    $.ajax({
-      type: 'GET',
-      url: '/app',
-      success: function (response) {
-        console.log('get response:', response);
-        response.forEach(function (task) {
-          var task = task.task;
-          var $li = $('<li class="list-group-item"></li>');
-          $li.append('<div class="checkbox"><label><input type="checkbox" value="">'
-           + task + '</label><button type="button" class="btn btn-danger btn-sm" id="delete">' +
-           '<span class="glyphicon glyphicon-remove"></span></button>');
-          $('.list-group').append($li);
-        });
       },
     });
   });

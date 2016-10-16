@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>To Do List</title>
 
@@ -9,19 +10,25 @@
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='../styles/style.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 
-  </head>
-  <body>
-    <!-- <h1>To Do List</h1> -->
+</head>
+
+<body>
     <section class="jumbotron">
-  <div class="container">
-    <div class="row text-center">
-      <h2>To Do List</h2>
-      <!-- <h3>This Year's Best</h3> -->
-      <!-- <a class="btn btn-primary" href="#">See all</a> -->
+        <div class="container">
+            <div class="row text-center">
+                <h2>To Do List</h2>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <form class="form-inline">
+            <input type="text" class="form-control input-lg" id="input" placeholder="Add a new task...">
+            <button type="submit" class="btn btn-default btn-lg" id="add"><i class="glyphicon glyphicon-plus"></i></button></form>
     </div>
-  </div>
-</section>
-  </body>
+    <div class="container" id="taskList">
+    </div>
+</body>
+
 </html>

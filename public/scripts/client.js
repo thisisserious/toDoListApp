@@ -21,13 +21,16 @@ $(function () {
       url: '/app',
       data: taskObj,
       success: function (response) {
+
         console.log('post response:', taskObj);
         var task = taskObj.task;
         var complete = taskObj.complete;
         console.log('response task:', task);
         console.log('response complete:', complete);
         var $li = $('<li class="list-group-item"></li>');
-        $li.append('<p>' + task + '</p>');
+        $li.append('<div class="checkbox"><label><input type="checkbox" value="">'
+         + task + '</label>');
+        // $li.append('<p>' + task + '</p>');
         $('.list-group').append($li);
       },
     });

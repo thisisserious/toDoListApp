@@ -21,9 +21,14 @@ $(function () {
       url: '/app',
       data: taskObj,
       success: function (response) {
-        console.log('post req response:', response);
-        // var task = taskObj.task;
-        // console.log('post req task:', task);
+        console.log('post response:', taskObj);
+        var task = taskObj.task;
+        var complete = taskObj.complete;
+        console.log('response task:', task);
+        console.log('response complete:', complete);
+        var $li = $('<li></li>');
+        $li.append('<p>' + task + '</p>');
+        $('#toDoList').append($li);
       },
     });
   });

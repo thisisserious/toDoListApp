@@ -15,13 +15,13 @@ $(function () {
     taskObj.task = task;
     taskObj.complete = 'no';
     console.log('taskObj:', taskObj);
+    $(this).find('input').val('');
 
     $.ajax({
       type: 'POST',
       url: '/app',
       data: taskObj,
       success: function (response) {
-
         console.log('post response:', taskObj);
         var task = taskObj.task;
         var complete = taskObj.complete;
@@ -31,26 +31,16 @@ $(function () {
         $li.append('<div class="checkbox"><label><input type="checkbox" value="">'
          + task + '</label><button type="button" class="btn btn-danger btn-sm" id="delete">' +
          '<span class="glyphicon glyphicon-remove"></span></button>');
-        // $li.append('<p>' + task + '</p>');
         $('.list-group').append($li);
       },
     });
+
+    $.ajax({
+      type: 'GET',
+      url: '/app',
+      success: function (response) {
+        console.log('get response:', response);
+      },
+    });
   });
-
-  // $.ajax({
-  //   type: 'GET',
-  //   url: '/app',
-  //   success: displayTask,
-  // });
-
-  // test to make sure client and router are playing nice
-  // var testObj = { name: 'Laura', age: '33' };
-  // $.ajax({
-  //   type: 'POST',
-  //   url: '/app',
-  //   data: testObj,
-  //   success: function (testObj) {
-  //     console.log('testObj:', testObj);
-  //   },
-  // });
 });

@@ -29,7 +29,8 @@ $(function () {
         console.log('response complete:', complete);
         var $li = $('<li class="list-group-item"></li>');
         $li.append('<div class="checkbox"><label><input type="checkbox" value="">'
-         + task + '</label>');
+         + task + '</label><button type="button" class="btn btn-danger btn-sm" id="delete">' +
+         '<span class="glyphicon glyphicon-remove"></span></button>');
         // $li.append('<p>' + task + '</p>');
         $('.list-group').append($li);
       },

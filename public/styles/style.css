@@ -5,11 +5,12 @@ body {
   text-align: center;
 }
 
-.table {
-  margin-top: 20px;
-}
-
 .panel {
   margin-top: 30px;
   text-align: left;
+}
+
+#delete {
+  float: right;
+  margin-top: -5px;
 }

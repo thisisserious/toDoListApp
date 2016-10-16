@@ -26,9 +26,9 @@ $(function () {
         var complete = taskObj.complete;
         console.log('response task:', task);
         console.log('response complete:', complete);
-        var $li = $('<li></li>');
+        var $li = $('<li class="list-group-item"></li>');
         $li.append('<p>' + task + '</p>');
-        $('#toDoList').append($li);
+        $('.list-group').append($li);
       },
     });
   });

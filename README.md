@@ -11,11 +11,9 @@ Create this table using Postico:
 
 2. ``CREATE TABLE tasks (
 id SERIAL PRIMARY KEY,
-task varchar(80) NOT NULL
+task varchar(80) NOT NULL,
+complete varchar (5)
 )``
-
-3. ``ALTER TABLE tasks
-ADD complete varchar(5);``
 
 ### Example Table:
 

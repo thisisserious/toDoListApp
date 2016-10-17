@@ -1,5 +1,8 @@
 # To Do List App
-This is a 'To Do List' app I designed. It allows the user to create a new task, check it off when complete, and delete it from the list.
+This is a 'To Do List' app I designed. It allows the user to create a new task and check it off when complete.
+
+### To Do
+- Delete button functionality
 
 ## Set-up
 Create this table using Postico:

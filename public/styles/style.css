@@ -1,7 +1,5 @@
-body {
+.container {
   font-family: 'Montserrat', Helvetica, sans-serif;
-  background-color: #fafad2;
-  color: #d47500;
   text-align: center;
 }
 

@@ -1,5 +1,5 @@
 # To Do List App
-This is a 'To Do List' app I designed. It allows the user to create a new task, check it off when complete and delete it from the list.
+This is a 'To Do List' app I designed. It allows the user to create a new task, check it off when complete, and delete it from the list.
 
 ## Set-up
 Create this table using Postico:
@@ -20,6 +20,9 @@ ADD complete varchar(5);``
 | -------|-------------- | -------- |
 | 1      | Do the dishes |    no    |
 | 2      | Make the bed  |   yes    |
+
+### Libraries
+This app requires npm, Express, body-parser, pg, and Bootstrap.
 
 # Author
 - Laura Abend

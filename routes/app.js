@@ -1,12 +1,16 @@
-var express = require('express');
-var router = express.Router();
-var pg = require('pg');
+var express = require('express'); // require express library
+var router = express.Router(); // set up new router using express
+var pg = require('pg'); // require page library for DB
+
+// database configuration
 
 var config = {
   database: 'to_do',
 };
 
 var pool = new pg.Pool(config);
+
+// get all of the tasks from the database
 
 router.get('/:id', function (req, res) {
   pool.connect(function (err, client, done) {
@@ -54,6 +58,8 @@ router.get('/', function (req, res) {
   });
 });
 
+// insert newly added task into database
+
 router.post('/', function (req, res) {
   pool.connect(function (err, client, done) {
     if (err) {
@@ -79,4 +85,30 @@ router.post('/', function (req, res) {
   });
 });
 
-module.exports = router;
+router.delete('/:id', function (req, res) {
+  var id = req.params.id;
+
+  pool.connect(function (err, client, done) {
+    try {
+      if (err) {
+        console.log('Error connecting to the DB', err);
+        res.sendStatus(500);
+        return;
+      }
+
+      client.query('DELETE FROM tasks WHERE id=$1;', [id], function (err) {
+        if (err) {
+          console.log('Error querying the DB', err);
+          res.sendStatus(500);
+          return;
+        }
+
+        res.sendStatus(204);
+      });
+    } finally {
+      done();
+    }
+  });
+});
+
+module.exports = router; // export router to make it available to server

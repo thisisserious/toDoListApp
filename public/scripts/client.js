@@ -16,13 +16,14 @@ $(function () {
          + task + '</label><button type="button" class="btn btn-danger btn-sm" id="delete">' +
          '<span class="glyphicon glyphicon-remove"></span></button>');
         $('.list-group').append($li);
+        $('#delete').on('click', function (event) {
+          event.preventDefault();
+          console.log('delete button has been clicked!');
+        });
       });
     },
   });
-  $('#delete').on('click', function (event) {
-    event.preventDefault();
-    console.log('delete button has been clicked!');
-  });
+
   // append DOM with new task on submit
 
   $('form').on('submit', function (event) {
@@ -59,18 +60,18 @@ $(function () {
       },
     });
   });
-
-  $('#delete').on('click', function (event) {
-    event.preventDefault();
-    console.log('Delete button clicked');
-    var taskID = $(this).data('id');
-    console.log('taskID:', taskID);
-    $.ajax({
-      type: 'DELETE',
-      url: '/app/' + taskID,
-      success: function (response) {
-        console.log('delete response:', response);
-      },
-    });
-  });
+  //
+  // $('#delete').on('click', function (event) {
+  //   event.preventDefault();
+  //   console.log('Delete button clicked');
+  //   var taskID = $(this).data('id');
+  //   console.log('taskID:', taskID);
+  //   $.ajax({
+  //     type: 'DELETE',
+  //     url: '/app/' + taskID,
+  //     success: function (response) {
+  //       console.log('delete response:', response);
+  //     },
+  //   });
+  // });
 });

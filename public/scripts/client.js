@@ -60,7 +60,7 @@ $(function () {
       },
     });
   });
-  //
+
   // $('#delete').on('click', function (event) {
   //   event.preventDefault();
   //   console.log('Delete button clicked');

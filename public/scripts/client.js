@@ -16,9 +16,26 @@ $(function () {
          + task + '</label><button type="button" class="btn btn-danger btn-sm" id="delete">' +
          '<span class="glyphicon glyphicon-remove"></span></button>');
         $('.list-group').append($li);
-        $('#delete').on('click', function (event) {
-          event.preventDefault();
-          console.log('delete button has been clicked!');
+        var $input = $('<div class="input-group">');
+        $input.append('<span class="input-group-addon"><input type="checkbox"' +
+        'aria-label="complete"></span><input type="text" class="form-control"' +
+        'aria-label="remove" value="' + task + '"><span class="input-group-btn">' +
+        '<button class="btn btn-danger" type="button"><span class="glyphicon ' +
+        'glyphicon-remove"></span></button></span></div>');
+        $('.col-lg-6').append($input);
+      });
+
+      $('div').on('click', '#delete', function (event) {
+        event.preventDefault();
+        console.log('Delete button clicked:', this);
+        var taskID = $(this).data('id', response.id);
+        console.log('taskID:', taskID);
+        $.ajax({
+          type: 'DELETE',
+          url: '/app/' + taskID,
+          success: function (response) {
+            console.log('delete response:', response);
+          },
         });
       });
     },
@@ -61,17 +78,4 @@ $(function () {
     });
   });
 
-  // $('#delete').on('click', function (event) {
-  //   event.preventDefault();
-  //   console.log('Delete button clicked');
-  //   var taskID = $(this).data('id');
-  //   console.log('taskID:', taskID);
-  //   $.ajax({
-  //     type: 'DELETE',
-  //     url: '/app/' + taskID,
-  //     success: function (response) {
-  //       console.log('delete response:', response);
-  //     },
-  //   });
-  // });
 });

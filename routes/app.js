@@ -74,7 +74,7 @@ router.post('/', function (req, res) {
      function (err, result) {
       done();
       if (err) {
-        console.log('Error querying the DB', err);
+        console.log('Error inserting into the DB', err);
         res.sendStatus(500);
         return;
       }
@@ -98,7 +98,7 @@ router.delete('/:id', function (req, res) {
 
       client.query('DELETE FROM tasks WHERE id=$1;', [id], function (err) {
         if (err) {
-          console.log('Error querying the DB', err);
+          console.log('Error deleting from the DB', err);
           res.sendStatus(500);
           return;
         }
